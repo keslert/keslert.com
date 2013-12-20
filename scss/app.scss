@@ -1,2 +1,251 @@
 @import "settings";
 @import "foundation";
+
+@font-face
+{
+  font-family: "Code_Light";
+  src: url('../fonts/CODE Light.otf') format('opentype');
+}
+
+@font-face
+{
+  font-family: "Steelfish";
+  src: url('../fonts/LondonBetween.ttf') format('opentype');
+}
+
+$green:#88C425;
+$gray:#353633;
+$blue:#1F7DB5;
+$red:#C13438;
+
+section.section-divider {
+	margin:0px 0;
+	padding:160px 20px 5px 50px;
+	position:relative;
+	overflow: hidden;
+	z-index:-1;
+
+	&.green {
+		background-color:$green;
+	}
+
+	&.gray {
+		background-color:$gray;
+	}
+
+	&.blue {
+		background-color:$blue;
+	}
+
+	i {
+		position: absolute;
+		color: #FFF;
+		opacity: .9;
+		text-shadow: 1px 0px 1px rgba(54, 54, 54, 0.25);
+
+		&.fi-tablet-landscape {
+			top: -53px;
+			right: 40px;
+			font-size: 23.5rem;
+			-webkit-transform: rotate(61deg);
+			color: darken($green, 20%);
+		}
+
+		&.fi-laptop {
+			top: -29px;
+			right: 45px;
+			font-size: 21.5rem;
+			color: lighten($gray, 20%);
+		}
+
+		&.fi-graph-bar {
+			top: -29px;
+			right: 95px;
+			font-size: 20.5rem;
+			color: darken($blue, 20%);
+		}
+
+		&.fi-torso-business {
+			font-size: 26.5rem;
+			top: -35px;
+			right: 108px;
+			-webkit-transform: rotate(-13deg);
+			color: darken($green, 20%);
+		}
+
+		&.fi-trophy {
+			font-size: 21.5rem;
+			top:-15px;
+			right: 100px;
+			color: darken($blue, 20%);
+		}
+	}
+
+	p {
+		font-size:4.0rem;
+		letter-spacing:20px;
+		color: #FFFFFF;
+		text-shadow: 0 1px 1px #CCC;
+		font-family:Code_Light;
+	}
+}
+
+.cards:hover {
+	&::before {
+
+	}
+}
+
+.card {
+	$borderRadius:10px;
+	margin:10px inherit;
+	height:400px;
+	background:#E0E3E7;
+	overflow:hidden;
+	border-radius:$borderRadius;
+	-webkit-transition:all .5s;
+	z-index:100;
+
+	&.Research {
+		.description {
+			h3 {
+				font-size:14px;
+				letter-spacing:1px;
+				* {
+					letter-spacing:1px;
+				}
+			}
+		}
+	}
+	
+	.image {
+		width:100%;
+		height:160px;
+		/*-webkit-filter: grayscale(100%);*/
+		opacity: .5;
+		background-repeat:no-repeat;
+		border-top-left-radius:$borderRadius;
+		border-top-right-radius:$borderRadius;
+		border-bottom: 1px solid rgb(90, 90, 90);
+
+		&.gallery {
+			cursor:pointer;
+		}
+	}
+
+	.description {
+		padding:10px;
+		text-align:center;
+		border-top: 1px solid #999;
+		h3 {
+			font-size:20px;
+			font-family:Steelfish;
+			color:$gray;
+			* {
+				color:$gray;
+				letter-spacing:5px;
+			}
+			a:hover {
+				color:lighten($gray, 20%);
+			}
+		}
+		p {
+			padding:0;
+			margin:0;
+			color:lighten($gray, 40%);
+			text-align:justify;
+			font-size:13px;
+		}
+	}
+
+	.overlay {
+		float:left;
+		font-size:12px;
+		opacity: .8;
+		top: 20px;
+		left: 20px;
+		padding-left: 95px;
+		padding-top: 133px;
+		color: #FFFFFF;
+		text-shadow: 0 1px 5px #000;
+		-webkit-transition:all .5s;
+		opacity:0;
+		pointer-events:none;
+
+		&.gallery::before {
+			content:'(click for more images)';
+		}
+
+		&.abstract::before {
+			content:'(click for full abstract)';
+		}
+
+		&.green {
+			/*background-color:#00A3FF*/
+			/*background-color:rgba(178, 255, 42, 0.56);*/
+		}
+
+		&.blue {
+			/*background-color:#00A3FF;*/
+		}
+
+	}
+
+	&:hover {
+		-webkit-transform:scale3d(1.1, 1.1, 1);
+		.overlay {
+			opacity:7;
+		}
+		.image {
+			-webkit-filter:none;
+			opacity:1;
+		}
+	}
+
+	&.Games {
+		height:160px;
+		.image {
+			border-radius:$borderRadius;
+			border-bottom: none;
+		}
+
+		.overlay {
+			font-size: 20px;
+			width: 100%;
+			text-align: right;
+			padding-right: 10px;
+		}
+	}
+}
+
+#About {
+	margin:10px auto;
+	p {
+		font-family:Steelfish;
+		color:#666;
+		font-size:18px;
+		&:first-letter {
+			font-size:28px;
+			color:$gray;
+		};
+
+	}
+
+	a {
+		text-decoration:none;
+		color:$gray;
+		&.green {
+			color:$green;
+		}
+		&.blue {
+			color:$blue;
+		}
+		&.red {
+			color:$red;
+		}
+	}
+}
+
+.hidden {
+	display:none;
+}
